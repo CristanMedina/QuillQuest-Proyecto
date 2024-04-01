@@ -12,7 +12,8 @@ export default function FormNewBook()
             method: 'POST',
             body: JSON.stringify({
                 title: data.title,
-                content: data.content
+                content: data.content,
+                description: data.description,
             }),
             headers: {
                 'Content-Type':'application/json'
@@ -29,6 +30,10 @@ export default function FormNewBook()
                 <div className="mb-5">
                     <input type="text" {...register("title")}
                     className="mt-1 block w-full px-3 py-2 bg-[#62918d] text-gray-800 placeholder-[#264946ff]  rounded-md shadow-sm focus:outline-none focus:ring-lime-500 focus:border-lime-500" placeholder="Titulo"/>
+                </div>
+                <div className="mb-5">
+                    <textarea rows="15" {...register("description")}
+                    className="mt-1 block w-full px-3 py-2 text-gray-800 bg-[#62918d] placeholder-[#264946ff]  rounded-md shadow-sm focus:outline-none focus:ring-lime-500 focus:border-lime-500" placeholder="Comienza con tu historia..."></textarea>
                 </div>
                 <div className="mb-5">
                     <textarea rows="15" {...register("content")}
