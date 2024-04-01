@@ -1,76 +1,76 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
-import logoQQ from "../img/logoAmarillo.svg";
-import logoLetras from "../img/logoLetras.svg";
+import logoQQ from "../img/Logo_y_Letras.svg";
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 async function Navbar() {
   const session = await getServerSession(authOptions);
-  console.log(session);
 
   return (
     <>
       {!session?.user ? (
-          <>
-          <nav className="bg-[#264946ff] py-3">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-24">
-              <div className="items-center container flex gap-2 flex-shrink-0">
-                  <Link href="/">
-                    <Image src={logoQQ} height={48} width={48} alt="logo"/>
-                  </Link>
-                  <Link href="/">
-                  <Image src={logoLetras} height={150} width={150} alt="logo"/>
-                  </Link>
-              </div>
-
-              <div className="hidden md:block">
-                <div className="mr-5 flex items-center space-x-4">
-                      <ul className="flex divide-x divide-white">
-                          <li>
-                              <Link href="/auth/ingreso" className="p-2 mr-3 font-extrabold font-mono text-xl text-lime-200 hover:bg-lime-200 hover:text-[#264946ff] rounded-xl transition duration-500"> Ingresar </Link>
-                          </li>
-                          <li>
-                              <Link href="/auth/registro" className=" ml-3 p-2 font-extrabold font-mono text-xl text-lime-200 hover:bg-lime-200 hover:text-[#264946ff] rounded-xl transition duration-500"> Registrarse </Link>
-                          </li>
-                      </ul>
+        <>
+          <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+                <div class="h-full px-3 py-4 overflow-y-auto shadow-xl  bg-[#1e5551]">
+                    <ul class="space-y-2 font-medium">
+                      <li>
+                            <Link href="/biblioteca">
+                              <Image src={logoQQ} height={125*1.3} width={93*1.3} alt="Quill Quest" className='cursor-pointer' priority/>
+                            </Link>
+                      </li>
+                      <li>
+                            <Link href="/biblioteca" className='group flex items-center uppercase text-xl rounded-xl p-4 text-lime-200 hover:bg-lime-200 hover:text-[#264946ff] transition duration-300'>
+                              + Biblioteca +
+                            </Link>
+                      </li>
+                      <li>
+                            <Link href="/auth/ingreso" className='group flex items-center uppercase text-xl rounded-xl p-4 text-lime-200 hover:bg-lime-200 hover:text-[#264946ff] transition duration-300'>
+                              + Ingresar + 
+                            </Link>
+                      </li>
+                      <li>
+                            <Link href="\auth\registro" className='group flex items-center uppercase text-xl rounded-xl p-4 text-lime-200 hover:bg-lime-200 hover:text-[#264946ff] transition duration-300'>
+                              + Registrarse +
+                            </Link>
+                      </li>
+                      
+                    </ul>
                 </div>
-              </div>
-          </div>
-        </div>
-      </nav>
-      </>
+              </aside>
+        </>
         ) : (
           <>
-          <nav className="bg-[#264946ff] py-3">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-24">
-              <div className="items-center container flex gap-2 flex-shrink-0">
-                  <Link href="/">
-                    <Image src={logoQQ} height={48} width={48} alt="logo"/>
-                  </Link>
-                  <Link href="/">
-                  <Image src={logoLetras} height={150} width={150} alt="logo"/>
-                  </Link>
-              </div>
-
-              <div className="hidden md:block">
-                <div className="mr-5 flex items-center space-x-4">
-                      <ul className="flex divide-x divide-white">
-                          <li>
-                              <Link href="/api/auth/signout" className="p-2 mr-3 font-extrabold font-mono text-xl text-lime-200 hover:bg-lime-200 hover:text-[#264946ff] rounded-xl transition duration-500"> Logout </Link>
-                          </li>
-                          <li>
-                              <Link href="/biblioteca" className=" ml-3 p-2 font-extrabold font-mono text-xl text-lime-200 hover:bg-lime-200 hover:text-[#264946ff] rounded-xl transition duration-500"> Biblioteca </Link>
-                          </li>
-                      </ul>
+              <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+                <div class="h-full px-3 py-4 overflow-y-auto shadow-xl  bg-[#1e5551]">
+                    <ul class="space-y-6 font-medium">
+                      <li>
+                            <Link href="/biblioteca">
+                              <Image src={logoQQ} height={125*1.3} width={93*1.3} alt="Quill Quest" className='cursor-pointer' priority/>
+                            </Link>
+                      </li>
+                      <li>
+                            <Link href="/biblioteca" className='group flex items-center uppercase text-xl rounded-xl p-4 text-lime-200 hover:bg-lime-200 hover:text-[#264946ff] transition duration-300'>
+                              + Biblioteca +
+                            </Link>
+                      </li>
+                      <li>
+                            <Link href="/nuevaEscritura" className='group flex items-center uppercase text-xl rounded-xl p-4 text-lime-200 hover:bg-lime-200 hover:text-[#264946ff] transition duration-300'>
+                              + Escribir historia... 
+                            </Link>
+                      </li>
+                      
+                      <li>
+                            <hr class="h-px my-8 bg-lime-200 border-0"/>
+                            <Link href="/api/auth/signout" className='group flex items-center uppercase text-xl rounded-xl p-4 text-lime-200 hover:bg-lime-200 hover:text-[#264946ff] transition duration-300'>
+                              + Signout +
+                            </Link>
+                      </li>
+                    </ul>
                 </div>
-              </div>
-          </div>
-        </div>
-      </nav>
-      </>
+              </aside>
+        </>
         )
       }
     </>

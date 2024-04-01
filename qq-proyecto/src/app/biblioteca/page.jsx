@@ -1,11 +1,47 @@
-"use client"
-import { signOut } from 'next-auth/react';
+import db from '@/libs/db';
+import Books from '@/components/Books';
+import Link from 'next/link';
 
-export default function bibliotecaPage() {
+
+async function getBooks(){
+  const books = await db.book.findMany({
+    where: {published: true},
+    orderBy: {
+      createdAt: 'desc',
+    },
+    include: {
+      author: { select: {username: true} }
+    }
+  })
+  return books;
+}
+
+export default async function bibliotecaPage() {
+  const books = await getBooks();
+
   return (
-    <div>
+    <div className='flex items-center flex-col justify-center min-h-screen'>
     <div>biblioteca</div>
-        <button className="bg-white text-black px-4 py-2 rounded-xl mt-4" onClick={() => signOut()}> Salir </button>
+
+    {
+      books.map((book) => {
+        const dateString = new Date(book.createdAt).toDateString();
+
+        return (
+          <Link key={book.id} href={`/libros/${book.id}`}>
+          <Books
+          key={book.id}
+          id={book.id}
+          title={book.title}
+          description={book.description}
+          authorName={book.author.username}
+          dateCreated={dateString}
+          />
+          </Link>
+        )
+      })
+    }
+
     </div>
   )
 }
