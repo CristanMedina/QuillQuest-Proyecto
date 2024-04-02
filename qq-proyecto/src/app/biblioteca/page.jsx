@@ -21,7 +21,7 @@ export default async function bibliotecaPage() {
 
   return (
     <div className='max-w-4xl mx-auto py-8'>
-    <div>biblioteca</div>
+    <div className='text-4xl'>Biblioteca</div>
 
     <div className='flex flex-wrap justify-center mt-10'>
     {

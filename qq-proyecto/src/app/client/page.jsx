@@ -1,9 +1,9 @@
 import Books from '@/components/Books';
 import db from '@/libs/db';
+import { getCurrentUser } from '@/libs/session';
 
 export default async function ClientPage()
 {  
-
     const myBooks = await db.book.findMany({
         orderBy: {
             createdAt: 'desc',
