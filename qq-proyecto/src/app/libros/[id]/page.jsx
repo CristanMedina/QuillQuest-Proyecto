@@ -18,8 +18,9 @@ export default async function BookDetailPage({params}) {
     <>
         <div className="max-w-4xl mx-auto py-8">
             <h1 className="text-3xl font-bold">{books?.title}</h1>
-            <p>Escrito por: {books?.authorName?.username} </p>
-            <div className="mt-4"> {books?.content} </div>
+            <span>Escrito por: </span>
+            <span className='m-2 text-lg'>{books?.authorName} </span>
+            <div className="mt-4 text-lg"> {books?.content} </div>
         </div>
     </>
 

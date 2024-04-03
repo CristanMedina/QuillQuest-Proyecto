@@ -4,7 +4,13 @@ import { getCurrentUser } from '@/libs/session';
 
 export default async function ClientPage()
 {  
+    const userPerfil = await getCurrentUser();
+    console.log(userPerfil);
+
     const myBooks = await db.book.findMany({
+        where: {
+            authorName: userPerfil?.name,
+        },
         orderBy: {
             createdAt: 'desc',
         },
