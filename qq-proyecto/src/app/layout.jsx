@@ -1,5 +1,6 @@
 
 import Navbar from '@/components/Navbar';
+import TopNavbar from '@/components/TopNavbar';
 import { Inter } from "next/font/google";
 import { Cabin } from "next/font/google";
 
@@ -23,7 +24,7 @@ export default function RootLayout({ children }) {
       <body className={cabin.className}>
         
           <NextAuthProvider>
-          <Navbar/>
+          <TopNavbar/>
           {children}
           </NextAuthProvider>
       </body>

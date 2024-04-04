@@ -23,7 +23,7 @@ function LoginPage() {
     {
       setError(res.error);
     } else {
-      router.push('/biblioteca');
+      router.push('/');
       router.refresh();
     }
   });

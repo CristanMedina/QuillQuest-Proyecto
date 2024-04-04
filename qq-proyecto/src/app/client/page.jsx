@@ -1,6 +1,13 @@
 import Books from '@/components/Books';
 import db from '@/libs/db';
 import { getCurrentUser } from '@/libs/session';
+import { Fugaz_One } from "next/font/google";
+import Link from 'next/link';
+
+const fugaz = Fugaz_One ({
+    weight: '400',
+    subsets: ['latin'],
+  })
 
 export default async function ClientPage()
 {  
@@ -23,13 +30,16 @@ export default async function ClientPage()
    { 
         return(
             <>
-                <div className='flex items-center flex-col justify-center min-h-screen'>
-                    <h1>Mis Libros</h1>
-                    <div>
+                <div className='container max-w-4xl mx-auto py-8 text-black'>
+                    <div className={fugaz.className}>
+                    <h1 className='text-4xl'>Mis Libros</h1>
+                    </div>
+                    <div className='grid grid-cols-3 gap-4 mt-10'>
                     {
                 myBooks.map((myBooks) => {
                     const dateString = new Date(myBooks.createdAt).toDateString();
                         return (
+                    <Link key={myBooks.id} href={`/libros/${myBooks.id}`}>
                         <Books
                         key={myBooks.id}
                         id={myBooks.id}
@@ -38,6 +48,7 @@ export default async function ClientPage()
                         authorName={myBooks.author?.username}
                         dateCreated={dateString}
                         />
+                    </Link>
                         )
                     })
                     }

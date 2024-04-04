@@ -15,16 +15,16 @@ async function HomePage() {
       <>
         {!session?.user ? (
           <>
-            <main className='h-screen flex items-center justify-center'>
+            <main className='h-screen  flex items-center justify-center'>
                 <section className='grid grid-cols-4 grid-rows-3 gap-4'>
-                  <div className='p-10 flex flex-col gap-1 col col-span-4 row-span-1
+                  <div className='p-20 flex flex-col gap-1 col col-span-4 row-span-1
                   bg-[#cfe8fc] shadow-md shadow-[#8095bd] rounded-[12px] hover:shadow-inner hover:shadow-[#8095bd] hover:bg-[#b5d4ff] hover:translate-x-2 transition duration-500 cursor-pointer
                   relative overflow-hidden group'>
                     <Link href='/auth/registro'>
                     <Image src={logoQQ} height={200} className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
                           <div className='absolute inset-0 bg-[#b192ff] hover:bg-[#9e78ff] opacity-10 group-hover:opacity-30 transition duration-500'/>
                           <div className='relative'>
-                          <p className='text-[16px]'>Descubre tu próxima historia</p>
+                            <p className='text-[16px]'>Descubre tu próxima historia</p>
                             <p className='text-[28px]'>Quill Quest</p>
                           </div>
                     </Link>
@@ -33,7 +33,7 @@ async function HomePage() {
                     <div className='p-6 border rounded-[12px] flex flex-col gap-1 col col-span-2 row-span-1
                       bg-[#cefff2] shadow-md shadow-[#b192ff] hover:shadow-inner hover:shadow-[#b192ff] hover:bg-[#c8ceff] hover:translate-x-2 transition duration-500
                       relative overflow-hidden cursor-pointer group'>
-                        <Link href='/nuevaEscritura'>
+                        <Link href='/auth/registro'>
                           <Image src={fondo1} className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
                           <div className='absolute inset-0 bg-[#b192ff] hover:bg-[#9e78ff] opacity-10 group-hover:opacity-30 transition duration-500'/>
                           <div className='relative'>
@@ -46,7 +46,7 @@ async function HomePage() {
                     <div className='p-6 border flex flex-col gap-1 col col-span-2 row-span-1
                   bg-[#fffee6] shadow-md shadow-[#b192ff] rounded-[12px] hover:shadow-inner hover:shadow-[#b192ff] hover:bg-[#c8ceff] hover:translate-x-2 transition duration-500
                       relative overflow-hidden cursor-pointer group'>
-                        <Link href='/client'>
+                        <Link href='/auth/ingreso'>
                           <Image src={fondo3} className='absolute inset-0 bg-cover bg-center mix-blend-overlay'></Image>
                           <div className='absolute inset-0 bg-[#b192ff] hover:bg-[#9e78ff] opacity-10 group-hover:opacity-30 transition duration-500'/>
                           <div className='relative'>
@@ -80,7 +80,7 @@ async function HomePage() {
                 <section className='grid grid-cols-3 grid-rows-3 gap-4'>
                   <div className='p-10 flex flex-col gap-1 col col-span-3 row-span-1
                   bg-[#cfe8fc] shadow-md shadow-[#8095bd] rounded-[12px] hover:shadow-inner hover:shadow-[#8095bd] hover:bg-[#b5d4ff] hover:translate-x-2 transition duration-500 cursor-pointer'>
-                    <Link href='/auth/registro'>
+                    <Link href='/biblioteca'>
                       <p className='text-[16px]'>Quill Quest</p>
                       <p className='text-[28px]'>Descubre tu próxima historia</p>
                     </Link>
