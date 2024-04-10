@@ -1,13 +1,9 @@
 
-import Navbar from '@/components/Navbar';
 import TopNavbar from '@/components/TopNavbar';
-import { Inter } from "next/font/google";
 import { Cabin } from "next/font/google";
-
 import "./globals.css";
 import NextAuthProvider from './NextAuthProvider';
 
-const inter = Inter({ subsets: ["latin"] });
 const cabin = Cabin({
   weight: '500',
   subsets: ['latin'],
@@ -22,10 +18,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={cabin.className}>
-        
           <NextAuthProvider>
-          <TopNavbar/>
-          {children}
+            <TopNavbar/>
+              
+              {children}
+              
           </NextAuthProvider>
       </body>
     </html>
